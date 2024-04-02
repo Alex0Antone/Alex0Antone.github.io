@@ -14,6 +14,13 @@ a {
 
 }
 
+.sample{
+
+    margin: 5%;
+    padding: 5%;
+    background-color: greenyellow;
+    border-radius:20%;
+}
 
 /* Class styling */
 .elements{
