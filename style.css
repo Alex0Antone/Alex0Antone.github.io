@@ -19,9 +19,25 @@ a {
     margin: auto;
   }
 
-.sample{
+#left {
 
-    margin: 5%;
+    width: 50%;
+}
+#right {
+    width: 50%;
+}
+
+
+#parent {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.sample{
+    width: 35%;
+    margin: 2%;
+    
     padding: 5%;
     background-color: greenyellow;
     border-radius:20%;
