@@ -25,6 +25,7 @@ a {
     padding: 5%;
     background-color: greenyellow;
     border-radius:20%;
+    border: 5px solid black;
     text-align: center;
 }
 
