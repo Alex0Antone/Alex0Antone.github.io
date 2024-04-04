@@ -14,6 +14,11 @@ a {
 
 }
 
+.video {
+    display: block;
+    margin: auto;
+  }
+
 .sample{
 
     margin: 5%;
