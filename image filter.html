@@ -31,12 +31,60 @@
             <div class = sample>
                 <img id= "image1" width = 50% src= "download.jpg" alt = Dice>
                 <br>
-                <button id = "gallerynext" >Next Image</button>
+                <button class="modal-btn prev-btn">&lt;</button>
+                <button class="modal-btn next-btn">&gt;</button>
             </div>
         </div>
     </body>
+    <script>
+                ///// TOGGLE IMAGE GALLERY MODAL ON CLICK //////
 
+        var imgOverlays = document.querySelectorAll(".imgs section div");
+        var mainImg = document.querySelector(".img-main");
+        var allModalImgs = document.querySelectorAll(".modal-gallery img");
+        var modal = document.querySelector(".modal-background");
+        var closeBtn = document.querySelector(".close-btn");
+        var opacity = 0.4;
 
+        function resetOpacity() {
+            for (i = 0; i < allModalImgs.length; i++) {
+                allModalImgs[i].style.opacity = 1;
+            }
+        }
 
+        document.querySelector("#gallery .imgs").addEventListener("click", function (e) {
+            for (i = 0; i < imgOverlays.length; i++) {
+                if (e.target == imgOverlays[i]) {
+                    modal.style.display = "block";
+                    mainImg.src = e.target.previousElementSibling.src;
+                }
+            }
+        });
 
+        for (i = 0; i < allModalImgs.length; i++) {
+            allModalImgs[i].addEventListener("click", function (e) {
+                resetOpacity();
+                mainImg.src = e.target.src;
+                e.target.style.opacity = opacity;
+            });
+        };
+
+        closeBtn.addEventListener("click", function () {
+            resetOpacity();
+            modal.style.display = "none";
+        });
+
+        ////// CLICK THROUGH GALLERY WITH RESPONSIVE BUTTONS //////
+
+        prevBtn = document.querySelector(".prev-btn");
+        nextBtn = document.querySelector(".next-btn");
+
+        var currentImg = 1;
+
+        nextBtn.addEventListener("click", function () {
+            mainImg.src = allModalImgs[currentImg].src;
+
+            currentImg = (currentImg += 1) % allModalImgs.length
+        });
+    </script>
 </html>
